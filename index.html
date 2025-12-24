@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="app-title">MusicMatch</h1>
+                <p class="app-subtitle">Pilih musik sesuai aktivitasmu</p>
+            </div>
+            <div class="header-icons">
+                <button id="favoritesToggle" class="icon-btn" title="Tampilkan favorit">
+                    <i class="fas fa-star"></i>
+                </button>
+                <button id="historyToggle" class="icon-btn" title="Riwayat">
+                    <i class="fas fa-history"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Area: Activities -->
+            <div class="activities-section">
+                <h2 class="section-title">Aktivitas</h2>
+                <div class="activities-list">
+                    <button class="activity-btn" data-activity="focus">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Fokus</span>
+                    </button>
+                    <button class="activity-btn" data-activity="energy">
+                        <i class="fas fa-bolt"></i>
+                        <span>Energi</span>
+                    </button>
+                    <button class="activity-btn" data-activity="chill">
+                        <i class="fas fa-couch"></i>
+                        <span>Nyantai</span>
+                    </button>
+                    <button class="activity-btn active" data-activity="all">
+                        <i class="fas fa-layer-group"></i>
+                        <span>All Role</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Area: Playlists -->
+            <div class="playlists-section">
+                <div class="playlists-header">
+                    <h2 class="section-title" id="playlistTitle">Semua Playlist</h2>
+                    <div class="playlist-count">
+                        <span id="playlistCount">8</span> playlist
+                    </div>
+                </div>
+                <div class="playlists-list" id="playlistsContainer">
+                    <!-- Playlists will be dynamically loaded here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- History Panel -->
+        <div class="history-panel" id="historyPanel">
+            <div class="history-header">
+                <h3>Riwayat</h3>
+                <button class="close-btn" id="closeHistory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="history-content">
+                <p id="historyEmpty">Belum ada riwayat</p>
+                <ul id="historyList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
