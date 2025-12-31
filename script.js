@@ -17,7 +17,7 @@ const playlistsData = {
         },
         {
             id: 3,
-            name: "Ashh Farhah",
+            name: "Ashh",
             activity: "focus",
             url: "https://youtube.com/playlist?list=PLiCeGmGset3k6cJs8zRnspdC-Ja-OHGcC",
             isFavorite: false
@@ -38,16 +38,16 @@ const playlistsData = {
         },
         {
             id: 6,
-            name: "Chill Vibes - Lofi & Jazz",
+            name: "K - Loviee",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=7NOSDKb0HlU",
+            url: "https://youtube.com/playlist?list=PLiCeGmGset3nDxD4JgpuZUzTky32hwdRS&si=VC5yCqtri1GyFkSI",
             isFavorite: false
         },
         {
             id: 7,
-            name: "Acoustic Relax",
+            name: "Larkspur",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=UfcAVejslrU",
+            url: "https://youtube.com/playlist?list=PLv4saWgETdfrzSx_ASkMtf0kIgtQYPFuU&si=LYuEyFtd9NZE8zQA",
             isFavorite: false
         },
         {
@@ -61,7 +61,7 @@ const playlistsData = {
     focus: [
         {
             id: 3,
-            name: "Ashh Farhah",
+            name: "Ashh",
             activity: "focus",
             url: "https://youtube.com/playlist?list=PLiCeGmGset3k6cJs8zRnspdC-Ja-OHGcC",
             isFavorite: false
@@ -100,16 +100,16 @@ const playlistsData = {
     chill: [
         {
             id: 6,
-            name: "Chill Vibes - Lofi & Jazz",
+            name: "K - Loviee",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=7NOSDKb0HlU",
+            url: "https://youtube.com/playlist?list=PLiCeGmGset3nDxD4JgpuZUzTky32hwdRS&si=VC5yCqtri1GyFkSI",
             isFavorite: false
         },
         {
             id: 7,
-            name: "Acoustic Relax",
+            name: "Larkspur",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=UfcAVejslrU",
+            url: "https://youtube.com/playlist?list=PLv4saWgETdfrzSx_ASkMtf0kIgtQYPFuU&si=LYuEyFtd9NZE8zQA",
             isFavorite: false
         },
         {
@@ -153,9 +153,9 @@ function initializeFavorites() {
 // Render Playlists
 function renderPlaylists() {
     playlistsContainer.innerHTML = '';
-    
+
     let playlistsToShow = [];
-    
+
     if (showingFavorites) {
         playlistsToShow = playlistsData.all.filter(playlist => playlist.isFavorite);
         playlistTitle.textContent = 'Playlist Favorit';
@@ -171,9 +171,9 @@ function renderPlaylists() {
         playlistTitle.textContent = activityNames[currentActivity];
         favoritesToggle.classList.remove('active');
     }
-    
+
     playlistCount.textContent = playlistsToShow.length;
-    
+
     if (playlistsToShow.length === 0) {
         const emptyMessage = document.createElement('div');
         emptyMessage.className = 'empty-message';
@@ -181,19 +181,19 @@ function renderPlaylists() {
         playlistsContainer.appendChild(emptyMessage);
         return;
     }
-    
+
     playlistsToShow.forEach(playlist => {
         const playlistItem = document.createElement('div');
         playlistItem.className = 'playlist-item';
         playlistItem.dataset.id = playlist.id;
-        
+
         playlistItem.innerHTML = `
             <span class="playlist-name">${playlist.name}</span>
             <button class="favorite-btn ${playlist.isFavorite ? 'active' : ''}" data-id="${playlist.id}">
                 <i class="fas fa-star"></i>
             </button>
         `;
-        
+
         // Click to open YouTube
         playlistItem.addEventListener('click', (e) => {
             if (!e.target.closest('.favorite-btn')) {
@@ -201,13 +201,13 @@ function renderPlaylists() {
                 addToHistory(playlist);
             }
         });
-        
+
         playlistsContainer.appendChild(playlistItem);
     });
-    
+
     // Add favorite button listeners
     document.querySelectorAll('.favorite-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.stopPropagation();
             const playlistId = parseInt(this.dataset.id);
             toggleFavorite(playlistId);
@@ -219,15 +219,15 @@ function renderPlaylists() {
 function toggleFavorite(playlistId) {
     const playlist = playlistsData.all.find(p => p.id === playlistId);
     if (!playlist) return;
-    
+
     playlist.isFavorite = !playlist.isFavorite;
-    
+
     if (playlist.isFavorite && !favorites.includes(playlistId)) {
         favorites.push(playlistId);
     } else if (!playlist.isFavorite) {
         favorites = favorites.filter(id => id !== playlistId);
     }
-    
+
     localStorage.setItem('musicmatch_favorites', JSON.stringify(favorites));
     renderPlaylists();
 }
@@ -243,33 +243,33 @@ function addToHistory(playlist) {
             minute: '2-digit'
         })
     };
-    
+
     history.unshift(historyItem);
     if (history.length > 10) {
         history.pop();
     }
-    
+
     updateHistoryDisplay();
 }
 
 // Update History Display
 function updateHistoryDisplay() {
     historyList.innerHTML = '';
-    
+
     if (history.length === 0) {
         historyEmpty.style.display = 'block';
         return;
     }
-    
+
     historyEmpty.style.display = 'none';
-    
+
     history.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
             <strong>${item.playlistName}</strong><br>
             <small>${item.timestamp} • ${getActivityName(item.activity)}</small>
         `;
-        
+
         li.addEventListener('click', () => {
             // Find and open the playlist
             const playlist = playlistsData.all.find(p => p.name === item.playlistName);
@@ -278,7 +278,7 @@ function updateHistoryDisplay() {
                 addToHistory(playlist);
             }
         });
-        
+
         historyList.appendChild(li);
     });
 }
@@ -298,7 +298,7 @@ function getActivityName(activityKey) {
 function switchActivity(activity) {
     currentActivity = activity;
     showingFavorites = false;
-    
+
     // Update active button
     activityButtons.forEach(btn => {
         btn.classList.remove('active');
@@ -306,7 +306,7 @@ function switchActivity(activity) {
             btn.classList.add('active');
         }
     });
-    
+
     renderPlaylists();
 }
 
@@ -315,53 +315,39 @@ function init() {
     initializeFavorites();
     renderPlaylists();
     updateHistoryDisplay();
-    
+
     // Activity button listeners
     activityButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             switchActivity(btn.dataset.activity);
         });
     });
-    
+
     // Favorites toggle
     favoritesToggle.addEventListener('click', () => {
         showingFavorites = !showingFavorites;
         renderPlaylists();
     });
-    
+
     // History panel
     historyToggle.addEventListener('click', () => {
         historyPanel.classList.add('active');
     });
-    
+
     closeHistory.addEventListener('click', () => {
         historyPanel.classList.remove('active');
     });
-    
+
     // Close history panel on outside click
     document.addEventListener('click', (e) => {
         if (!historyPanel.contains(e.target) && !historyToggle.contains(e.target)) {
             historyPanel.classList.remove('active');
         }
     });
-    
-    // Set All Role as baseline - LOCK HEIGHTS
-    const activitiesSection = document.querySelector('.activities-section');
-    const playlistsSection = document.querySelector('.playlists-section');
-    
-    const baseHeight = 550; // Height dari CSS
-    activitiesSection.style.height = `${baseHeight}px`;
-    playlistsSection.style.minHeight = `${baseHeight}px`;
-    
-    // Add demo history entries
-    if (history.length === 0) {
-        setTimeout(() => {
-            if (history.length === 0) {
-                addToHistory(playlistsData.all[0]);
-                addToHistory(playlistsData.all[3]);
-            }
-        }, 100);
-    }
+
+
+
+
 }
 
 // Start application
