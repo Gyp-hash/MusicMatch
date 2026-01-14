@@ -24,9 +24,9 @@ const playlistsData = {
         },
         {
             id: 4,
-            name: "Classical Focus",
+            name: "Nasyid",
             activity: "focus",
-            url: "https://youtube.com/playlist?list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK",
+            url: "https://youtube.com/playlist?list=PLo1AbOhtXu0lembkb-bTZuRmMgkllxtWq&si=sz0oewqAUuncdOSh",
             isFavorite: false
         },
         {
@@ -52,9 +52,9 @@ const playlistsData = {
         },
         {
             id: 8,
-            name: "Ambient Workspace",
+            name: "Jj a6",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=W4Te7cX_6_4",
+            url: "https://youtube.com/playlist?list=PLo1AbOhtXu0mvDjHPdNrH-bRkVMD4i9Rt&si=prpca3p3CslZn22v",
             isFavorite: false
         }
     ],
@@ -68,9 +68,9 @@ const playlistsData = {
         },
         {
             id: 4,
-            name: "Classical Focus",
+            name: "Nasyid",
             activity: "focus",
-            url: "https://youtube.com/playlist?list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK",
+            url: "https://youtube.com/playlist?list=PLo1AbOhtXu0lembkb-bTZuRmMgkllxtWq&si=sz0oewqAUuncdOSh",
             isFavorite: false
         },
         {
@@ -114,9 +114,9 @@ const playlistsData = {
         },
         {
             id: 8,
-            name: "Ambient Workspace",
+            name: "Jj a6",
             activity: "chill",
-            url: "https://www.youtube.com/watch?v=W4Te7cX_6_4",
+            url: "https://youtube.com/playlist?list=PLo1AbOhtXu0mvDjHPdNrH-bRkVMD4i9Rt&si=prpca3p3CslZn22v",
             isFavorite: false
         }
     ]
