@@ -31,9 +31,9 @@ const playlistsData = {
         },
         {
             id: 5,
-            name: "Instrumental Study",
+            name: "Instrumental",
             activity: "focus",
-            url: "https://youtube.com/playlist?list=PL-wHyY5U9rkQ94gffcN1xJ_YNWaNk7lBp",
+            url: "https://youtube.com/playlist?list=PLvzKqwqJUFOcyC9t3SQa7Q-0h07Geaw_X&si=nGfOLMkVRghOLelc",
             isFavorite: false
         },
         {
@@ -75,9 +75,9 @@ const playlistsData = {
         },
         {
             id: 5,
-            name: "Instrumental Study",
+            name: "Instrumental",
             activity: "focus",
-            url: "https://youtube.com/playlist?list=PL-wHyY5U9rkQ94gffcN1xJ_YNWaNk7lBp",
+            url: "https://youtube.com/playlist?list=PLvzKqwqJUFOcyC9t3SQa7Q-0h07Geaw_X&si=nGfOLMkVRghOLelc",
             isFavorite: false
         }
     ],
